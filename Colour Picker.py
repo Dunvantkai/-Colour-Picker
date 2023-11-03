@@ -1,17 +1,19 @@
 import pygame
 pygame.init()
 
+#Render display window
 screen = pygame.display.set_mode((800, 600))
 
+#sets titles for displays icon and program head aswell as pulls files from fold
 pygame.display.set_caption("RGB Colour Pick")
 icon = pygame.image.load('world.png')
 dot1 = pygame.image.load('dot.png')
+backdropGUI = pygame.image.load('Colour gui.png')
 pygame.display.set_icon(icon)
 
-backdropGUI = pygame.image.load('Colour gui.png')
+#resizes the gui
 SizeGUI = (500, 500)
 backdropGUI = pygame.transform.scale(backdropGUI, SizeGUI)
-
 
 #gui render
 def GUI():
@@ -34,7 +36,7 @@ blueChange = 310
 isRunning = True
 while isRunning:
     screen.fill((red, green, blue))
-    GUI()
+    GUI() # calls on GUI
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -100,5 +102,4 @@ while isRunning:
         blue = 255 - blue
         PrintRGB = (red, green, blue)
         print("RGB:", PrintRGB)
-
     pygame.display.update()
